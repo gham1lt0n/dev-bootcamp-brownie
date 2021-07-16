@@ -20,6 +20,7 @@ LOCAL_BLOCKCHAIN_ENVIRONMENTS = NON_FORKED_LOCAL_BLOCKCHAIN_ENVIRONMENTS + [
 contract_to_mock = {
     "link_token": LinkToken,
     "eth_usd_price_feed": MockV3Aggregator,
+    "btc_usd_price_feed": MockV3Aggregator,
     "vrf_coordinator": VRFCoordinatorMock,
     "oracle": MockOracle,
 }
@@ -38,8 +39,8 @@ def get_account(index=None, id=None):
 
 
 def get_contract(contract_name):
-    """If you want to use this function, go to the brownie config and add a new entry for
-    the contract that you want to be able to 'get'. Then add an entry in the in the variable 'contract_to_mock'.
+    """If you want to use this function, go to the brownie-config.yaml and add a new entry for
+    the contract that you want to be able to 'get' (you will need to find its address). Then in helpful_scripts.py (above) add an entry in the dictionary 'contract_to_mock'.
     You'll see examples like the 'link_token'.
         This script will then either:
             - Get a address from the config
